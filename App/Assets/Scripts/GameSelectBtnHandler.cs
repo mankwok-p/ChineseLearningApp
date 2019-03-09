@@ -20,6 +20,11 @@ public class GameSelectBtnHandler : MonoBehaviour
         source.playOnAwake = false;
     }
 
+    public void StartGame(string sceneName)
+    {
+        StartCoroutine(DelaySceneLoad(sceneName));
+    }
+
     void PlaySound()
     {
         source.PlayOneShot(sound);
