@@ -40,6 +40,21 @@ public class MainBtnHandler : MonoBehaviour
         Application.Quit();
     }
 
+    public void ShowInstruction(GameObject instructionPanel)
+    {
+        PlaySound();
+        StartCoroutine(ActivatePanel(instructionPanel));
+    }
+    IEnumerator ActivatePanel(GameObject instructionPanel)
+    {
+        if (!instructionPanel.activeSelf)
+        {
+            instructionPanel.SetActive(true);
+            yield return new WaitForSeconds(10);
+            instructionPanel.SetActive(false);
+        }
+    }
+
     IEnumerator DelaySceneLoad(string sceneName)
     {
         PlaySound();
