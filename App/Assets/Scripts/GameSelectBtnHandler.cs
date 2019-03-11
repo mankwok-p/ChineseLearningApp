@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 [RequireComponent(typeof(Button))]
-public class MainBtnHandler : MonoBehaviour
+public class GameSelectBtnHandler : MonoBehaviour
 {
     public AudioClip sound;
     private AudioSource source { get { return GetComponent<AudioSource>(); } }
@@ -20,39 +20,14 @@ public class MainBtnHandler : MonoBehaviour
         source.playOnAwake = false;
     }
 
+    public void StartGame(string sceneName)
+    {
+        StartCoroutine(DelaySceneLoad(sceneName));
+    }
+
     void PlaySound()
     {
         source.PlayOneShot(sound);
-    }
-
-    public void StartGame()
-    {
-        StartCoroutine(DelaySceneLoad("GameSelect"));
-    }
-
-    public void BackToHome()
-    {
-        StartCoroutine(DelaySceneLoad("MainMenu"));
-    }
-
-    public void ExitGame()
-    {
-        Application.Quit();
-    }
-
-    public void ShowInstruction(GameObject instructionPanel)
-    {
-        PlaySound();
-        StartCoroutine(ActivatePanel(instructionPanel));
-    }
-    IEnumerator ActivatePanel(GameObject instructionPanel)
-    {
-        if (!instructionPanel.activeSelf)
-        {
-            instructionPanel.SetActive(true);
-            yield return new WaitForSeconds(10);
-            instructionPanel.SetActive(false);
-        }
     }
 
     IEnumerator DelaySceneLoad(string sceneName)
