@@ -20,7 +20,7 @@ public class MainBtnHandler : MonoBehaviour
         source.playOnAwake = false;
     }
 
-    void PlaySound()
+    public void PlaySound()
     {
         source.PlayOneShot(sound);
     }
