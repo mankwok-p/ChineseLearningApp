@@ -43,16 +43,17 @@ public class MainBtnHandler : MonoBehaviour
     public void ShowInstruction(GameObject instructionPanel)
     {
         PlaySound();
+        // if (instructionPanel.activeSelf)
+        //     instructionPanel.SetActive(false);
+        // else 
+        //      instructionPanel.SetActive(true);
         StartCoroutine(ActivatePanel(instructionPanel));
     }
     IEnumerator ActivatePanel(GameObject instructionPanel)
     {
-        if (!instructionPanel.activeSelf)
-        {
-            instructionPanel.SetActive(true);
-            yield return new WaitForSeconds(10);
-            instructionPanel.SetActive(false);
-        }
+        instructionPanel.SetActive(true);
+        yield return new WaitForSeconds(10);
+        instructionPanel.SetActive(false);
     }
 
     IEnumerator DelaySceneLoad(string sceneName)
