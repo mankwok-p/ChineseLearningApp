@@ -30,7 +30,7 @@ public class MainBtnHandler : MonoBehaviour
         StartCoroutine(DelaySceneLoad("GameSelect"));
     }
 
-    public void StartSettins()
+    public void StartSettings()
     {
         StartCoroutine(DelaySceneLoad("Settings"));
     }
