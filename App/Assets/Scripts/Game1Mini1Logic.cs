@@ -57,6 +57,7 @@ public class Game1Mini1Logic : MonoBehaviour
                 }
                 else
                 {
+                    header.SetText("Try again");
                     clickOrder.Clear();
                 }
             }
