@@ -51,7 +51,12 @@ public class SettingsBtnHandler : MonoBehaviour
     {
         StartCoroutine(DelaySceneLoad("MainMenu"));
     }
-    
+
+    public void BackToSettings()
+    {
+        StartCoroutine(DelaySceneLoad("Settings"));
+    }
+
     IEnumerator DelaySceneLoad(string sceneName)
     {
         PlaySound();
