@@ -1541,7 +1541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound: {fileID: 8300000, guid: c80e1e0c2aff10746ac5fa8b1f4c1680, type: 3}
-  audioMixerGroup: {fileID: 0}
+  audioMixerGroup: {fileID: 24300002, guid: 6da1467fea0fdfa45926af3fb671d9a6, type: 2}
 --- !u!1 &689829200
 GameObject:
   m_ObjectHideFlags: 0
