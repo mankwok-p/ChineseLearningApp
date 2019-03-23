@@ -124,7 +124,6 @@ GameObject:
   - component: {fileID: 26541340}
   - component: {fileID: 26541339}
   - component: {fileID: 26541342}
-  - component: {fileID: 26541341}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -188,19 +187,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 26541337}
   m_CullTransparentMesh: 0
---- !u!114 &26541341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 26541337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 168f68f7a6d3e924ba1edcd625d57268, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sound: {fileID: 0}
 --- !u!114 &26541342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -457,6 +443,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound: {fileID: 8300000, guid: c80e1e0c2aff10746ac5fa8b1f4c1680, type: 3}
+  audioMixerGroup: {fileID: 24300002, guid: 6da1467fea0fdfa45926af3fb671d9a6, type: 2}
 --- !u!114 &304194865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -761,6 +748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound: {fileID: 8300000, guid: c80e1e0c2aff10746ac5fa8b1f4c1680, type: 3}
+  audioMixerGroup: {fileID: 24300002, guid: 6da1467fea0fdfa45926af3fb671d9a6, type: 2}
 --- !u!114 &665836516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -904,6 +892,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound: {fileID: 8300000, guid: c80e1e0c2aff10746ac5fa8b1f4c1680, type: 3}
+  audioMixerGroup: {fileID: 24300002, guid: 6da1467fea0fdfa45926af3fb671d9a6, type: 2}
 --- !u!114 &752762980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1435,6 +1424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound: {fileID: 8300000, guid: c80e1e0c2aff10746ac5fa8b1f4c1680, type: 3}
+  audioMixerGroup: {fileID: 24300002, guid: 6da1467fea0fdfa45926af3fb671d9a6, type: 2}
 --- !u!114 &1139606513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2170,6 +2160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound: {fileID: 8300000, guid: c80e1e0c2aff10746ac5fa8b1f4c1680, type: 3}
+  audioMixerGroup: {fileID: 24300002, guid: 6da1467fea0fdfa45926af3fb671d9a6, type: 2}
 --- !u!114 &1626943844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2392,6 +2383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound: {fileID: 8300000, guid: c80e1e0c2aff10746ac5fa8b1f4c1680, type: 3}
+  audioMixerGroup: {fileID: 24300002, guid: 6da1467fea0fdfa45926af3fb671d9a6, type: 2}
 --- !u!114 &1754320980
 MonoBehaviour:
   m_ObjectHideFlags: 0
