@@ -54,13 +54,11 @@ public class UserData
     {
         if(this.favouriteGames.IndexOf(gameName) == -1) 
         {
-            Debug.Log("Add fav " + gameName);
             this.SaveFavouriteGame(gameName);
             return true;
         }
         else 
         {
-            Debug.Log("Remove fav " + gameName);
             this.RemoveFavouriteGame(gameName);
             return false;
         }
