@@ -7,6 +7,13 @@ using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
+public class GameHistory 
+{
+    public string gameName;
+    public System.DateTime playTime;
+}
+
+[System.Serializable]
 public class UserData
 {
     [XmlArray("FavouriteGames")]
@@ -15,8 +22,7 @@ public class UserData
 
     [XmlArray("GameHistory")]
     [XmlArrayItem("History")]
-    public List<string> gameHistory = new List<string>();
-
+    public List<GameHistory> gameHistory = new List<GameHistory>();
 
     public static UserData LoadUserData()
     {
@@ -47,7 +53,7 @@ public class UserData
 
     public override string ToString() 
     {
-        return string.Format("favouriteGames count: {0}", this.favouriteGames.Count);
+        return string.Format("favouriteGames count: {0}, game history count {1}", this.favouriteGames.Count, this.gameHistory.Count);
     }
 
     public bool HandleFavouriteGame(string gameName) 
@@ -71,6 +77,20 @@ public class UserData
 
     public void RemoveFavouriteGame(string gameName) {
         this.favouriteGames.RemoveAll(favGame => favGame.Contains(gameName));
+        this.SaveUserData();
+    }
+
+    public void SaveGameHistory(string gameName) {
+        GameHistory gameHistory = new GameHistory();
+        gameHistory.gameName = gameName;
+        gameHistory.playTime = System.DateTime.Now;
+
+        this.gameHistory.Add(gameHistory);
+        this.SaveUserData();
+    }
+
+    public void RemoveOldHistory() {
+        int i = this.gameHistory.RemoveAll(gameHistory => gameHistory.playTime <= System.DateTime.Now.AddYears(-1));
         this.SaveUserData();
     }
 }
