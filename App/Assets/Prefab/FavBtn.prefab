@@ -212,3 +212,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonComponent: {fileID: 832228393853444770}
   nameLabel: {fileID: 832228393730113848}
+  sound: {fileID: 8300000, guid: c80e1e0c2aff10746ac5fa8b1f4c1680, type: 3}
+  audioMixerGroup: {fileID: 24300002, guid: 6da1467fea0fdfa45926af3fb671d9a6, type: 2}
