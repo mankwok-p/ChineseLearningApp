@@ -48,12 +48,12 @@ public class GameReportScrollList : MonoBehaviour
 
     private void AddButtons()
     {
-        foreach (GameHistory gameHistory in this.userData.gameHistory)
+        for (int i = this.userData.gameHistory.Count - 1; i >= 0; i--)
         {
             GameHistoryItem item = new GameHistoryItem();
-            item.labelText = GetDisplayName(gameHistory.gameName);
-            item.gameName = gameHistory.gameName;
-            item.playedTimeText = gameHistory.playTime.ToString("dd/MM/yyyy HH:mm");
+            item.labelText = GetDisplayName(this.userData.gameHistory[i].gameName);
+            item.gameName = this.userData.gameHistory[i].gameName;
+            item.playedTimeText = this.userData.gameHistory[i].playTime.ToString("dd/MM/yyyy HH:mm");
             GameObject newButton = buttonObjectPool.GetObject();
             newButton.transform.SetParent(contentPanel, false);
 
