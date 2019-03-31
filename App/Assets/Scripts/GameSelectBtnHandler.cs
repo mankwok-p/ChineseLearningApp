@@ -26,6 +26,8 @@ public class GameSelectBtnHandler : MonoBehaviour
 
     public void StartGame(string sceneName)
     {
+        UserData UserData = UserData.LoadUserData();
+        UserData.SaveGameHistory(sceneName);
         StartCoroutine(DelaySceneLoad(sceneName));
     }
 
