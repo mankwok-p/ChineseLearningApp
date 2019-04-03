@@ -37,9 +37,23 @@ public class SettingsBtnHandler : MonoBehaviour
 
     public void StartShare()
     {
-        StartCoroutine(DelaySceneLoad("Share"));
-    }
+        AndroidJavaClass intentClass = new AndroidJavaClass("android.content.Intent");
+        AndroidJavaObject intentObject = new AndroidJavaObject("android.content.Intent");
+        intentObject.Call<AndroidJavaObject>("setAction", intentClass.GetStatic<string>("ACTION_SEND"));
 
+        var shareSubject = "Share with friends";
+        var shareMessage = "I am playing the Chinese Learning App. It is funny and good for learning Chinese. I recommend the app to you. \n\nCheers\n\n https://github.com/mankwok-p/ChineseLearningApp";
+
+        intentObject.Call<AndroidJavaObject>("setType", "text/plain");
+        //intentObject.Call<AndroidJavaObject>("putExtra", intentClass.GetStatic<string>("EXTRA_SUBJECT"), shareSubject);
+        intentObject.Call<AndroidJavaObject>("putExtra", intentClass.GetStatic<string>("EXTRA_TEXT"), shareMessage);
+
+        AndroidJavaClass unity = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+        AndroidJavaObject currentActivity = unity.GetStatic<AndroidJavaObject>("currentActivity");
+        AndroidJavaObject chooser = intentClass.CallStatic<AndroidJavaObject>("createChooser", intentObject, shareSubject);
+        currentActivity.Call("startActivity", chooser);
+    }
+    
     public void StartTreasure()
     {
         StartCoroutine(DelaySceneLoad("Treasure"));
