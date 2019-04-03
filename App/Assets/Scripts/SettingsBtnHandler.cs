@@ -37,7 +37,7 @@ public class SettingsBtnHandler : MonoBehaviour
 
     public void StartShare()
     {
-        StartCoroutine(DelaySceneLoad("Share"));
+        StartCoroutine(DelayShare());
     }
 
     public void StartTreasure()
@@ -65,5 +65,30 @@ public class SettingsBtnHandler : MonoBehaviour
         PlaySound();
         yield return new WaitForSeconds(sound.length);
         SceneManager.LoadScene(sceneName);
+    }
+
+    IEnumerator DelayShare()
+    {
+        PlaySound();
+        yield return new WaitForSeconds(sound.length);
+        DoShare();
+    }
+
+    private void DoShare()
+    {
+        AndroidJavaClass intentClass = new AndroidJavaClass("android.content.Intent");
+        AndroidJavaObject intentObject = new AndroidJavaObject("android.content.Intent");
+        intentObject.Call<AndroidJavaObject>("setAction", intentClass.GetStatic<string>("ACTION_SEND"));
+
+        var shareSubject = "Share with friends";
+        var shareMessage = "";
+
+        intentObject.Call<AndroidJavaObject>("setType", "text/plain");
+        intentObject.Call<AndroidJavaObject>("putExtra", intentClass.GetStatic<string>("EXTRA_TEXT"), shareMessage);
+
+        AndroidJavaClass unity = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+        AndroidJavaObject currentActivity = unity.GetStatic<AndroidJavaObject>("currentActivity");
+        AndroidJavaObject chooser = intentClass.CallStatic<AndroidJavaObject>("createChooser", intentObject, shareSubject);
+        currentActivity.Call("startActivity", chooser);
     }
 }
