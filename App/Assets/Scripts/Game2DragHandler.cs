@@ -9,6 +9,9 @@ public class Game2DragHandler : MonoBehaviour
     public int dragSpeed = 100;
     public GameObject placeholder;
 
+    public AudioSource winAudio;
+    public AudioSource loseAudio;
+
     private Vector3 initialPosition;
 
     private Button btn;
@@ -62,12 +65,15 @@ public class Game2DragHandler : MonoBehaviour
                 this.transform.position = placeholder.transform.position;
                 Game2Logic.isWin = true;
                 Game2Logic.isWrong = false;
+                winAudio.PlayOneShot(winAudio.clip);
             }
             else
             {
                 this.transform.position = initialPosition;
                 Game2Logic.isWin = false;
                 Game2Logic.isWrong = true;
+                loseAudio.PlayOneShot(loseAudio.clip);
+
             }
         }
     }
