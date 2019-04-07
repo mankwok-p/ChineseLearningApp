@@ -23,9 +23,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Settings/Report.unity
     guid: de2360f2d5d3ba142914d2d924b4e42e
-  - enabled: 0
-    path: Assets/Scenes/Settings/Share.unity
-    guid: 0569b5b37d0b02e40b99bee34599f6a1
   - enabled: 1
     path: Assets/Scenes/Settings/Theme.unity
     guid: 16369ea3e7fd709408abbecaa686d097
@@ -35,4 +32,34 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Settings/Treasure.unity
     guid: 049b5ba9ae2931947ad5c1ff39303c58
+  - enabled: 1
+    path: Assets/Scenes/Game1/1_o.unity
+    guid: 73191fa127acc8a4da6d83ef08d778a2
+  - enabled: 1
+    path: Assets/Scenes/Game2/2_o.unity
+    guid: 20e122d1cf04a464e8ce855fe4f18234
+  - enabled: 1
+    path: Assets/Scenes/Game1/1_e.unity
+    guid: 88fc3403a9172164ea7ba052c9c3f2fa
+  - enabled: 1
+    path: Assets/Scenes/Game2/2_e.unity
+    guid: 1960ef65b985010428447ac84ae74d7f
+  - enabled: 1
+    path: Assets/Scenes/Game1/1_i.unity
+    guid: f871239db3a738b4fb2cc0cbe73e1851
+  - enabled: 1
+    path: Assets/Scenes/Game2/2_i.unity
+    guid: df2081e09dd6f454f8df9e63d32e7886
+  - enabled: 1
+    path: Assets/Scenes/Game1/1_u.unity
+    guid: e18b56e8ed3dc8d41bedcd69ca33c9a1
+  - enabled: 1
+    path: Assets/Scenes/Game2/2_u.unity
+    guid: c412a574d122c9a48826fa3eac4072a3
+  - enabled: 1
+    path: "Assets/Scenes/Game1/1_\xFC.unity"
+    guid: efb160e0941ab6a41ad7f1a138badbbe
+  - enabled: 1
+    path: "Assets/Scenes/Game2/2_\xFC.unity"
+    guid: 7ba23992ecba4a8438280bfeda05dfc6
   m_configObjects: {}
