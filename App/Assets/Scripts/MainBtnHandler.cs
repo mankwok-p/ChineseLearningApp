@@ -3,14 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEngine.Audio;
-
 [RequireComponent(typeof(Button))]
 public class MainBtnHandler : MonoBehaviour
 {
     public AudioClip sound;
     private AudioSource source { get { return GetComponent<AudioSource>(); } }
-    public AudioMixerGroup audioMixerGroup;
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -20,7 +17,6 @@ public class MainBtnHandler : MonoBehaviour
     {
         gameObject.AddComponent<AudioSource>();
         source.clip = sound;
-        source.outputAudioMixerGroup = audioMixerGroup;
         source.playOnAwake = false;
     }
 
@@ -32,11 +28,6 @@ public class MainBtnHandler : MonoBehaviour
     public void StartGame()
     {
         StartCoroutine(DelaySceneLoad("GameSelect"));
-    }
-
-    public void StartSettings()
-    {
-        StartCoroutine(DelaySceneLoad("Settings"));
     }
 
     public void BackToHome()

@@ -9,9 +9,6 @@ public class Game2DragHandler : MonoBehaviour
     public int dragSpeed = 100;
     public GameObject placeholder;
 
-    public AudioSource winAudio;
-    public AudioSource loseAudio;
-
     private Vector3 initialPosition;
 
     private Button btn;
@@ -25,56 +22,49 @@ public class Game2DragHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //          if (Input.touchCount > 0) 
-        //  {
-        //      Touch touch = Input.GetTouch(0); // get first touch since touch count is greater than zero
-
-        //      if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved) 
-        //      {
-        //          // get the touch position from the screen touch to world point
-        //          Vector3 touchedPos = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 10));
-        //          // lerp and set the position of the current object to that of the touch, but smoothly over time.
-        //          transform.position = Vector3.Lerp(transform.position, touchedPos, Time.deltaTime);
-        //      }
-        //  }
+//          if (Input.touchCount > 0) 
+//  {
+//      Touch touch = Input.GetTouch(0); // get first touch since touch count is greater than zero
+     
+//      if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved) 
+//      {
+//          // get the touch position from the screen touch to world point
+//          Vector3 touchedPos = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 10));
+//          // lerp and set the position of the current object to that of the touch, but smoothly over time.
+//          transform.position = Vector3.Lerp(transform.position, touchedPos, Time.deltaTime);
+//      }
+//  }
     }
-    public void OnBeginDrag()
-    {
+    public void OnBeginDrag() {
         initialPosition = this.transform.position;
     }
 
     public void OnMouseDrag()
-    {
-        if (btn.interactable)
-        {
+     {
+         if(btn.interactable)
+         {
             Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, dragSpeed);
             Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-
+    
             transform.position = objPosition;
-        }
-    }
+         }
+     }
 
     public void OnMouseDrop()
-    {
-        if (btn.interactable)
+     {
+        float distance = Vector3.Distance(this.transform.position, placeholder.transform.position);
+
+        if(distance < 0.5 && this.tag == placeholder.tag)
         {
-            float distance = Vector3.Distance(this.transform.position, placeholder.transform.position);
-
-            if (distance < 0.5 && this.tag == placeholder.tag)
-            {
-                this.transform.position = placeholder.transform.position;
-                Game2Logic.isWin = true;
-                Game2Logic.isWrong = false;
-                winAudio.PlayOneShot(winAudio.clip);
-            }
-            else
-            {
-                this.transform.position = initialPosition;
-                Game2Logic.isWin = false;
-                Game2Logic.isWrong = true;
-                loseAudio.PlayOneShot(loseAudio.clip);
-
-            }
+            this.transform.position = placeholder.transform.position;
+            Game2Logic.isWin = true;
+            Game2Logic.isWrong = false;
         }
-    }
+        else 
+        {
+            this.transform.position = initialPosition;
+            Game2Logic.isWin = false;
+            Game2Logic.isWrong = true;
+        }
+     }
 }
