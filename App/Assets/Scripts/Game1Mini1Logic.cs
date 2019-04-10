@@ -9,6 +9,9 @@ public class Game1Mini1Logic : MonoBehaviour
     public TMP_Text header;
     public TMP_Text textTrial;
 
+    public AudioSource winAudio;
+    public AudioSource loseAudio;
+
     public static readonly int MAX_TRIAL = 3;
     private int currentTrial = MAX_TRIAL;
     private bool isWin = false;
@@ -57,6 +60,8 @@ public class Game1Mini1Logic : MonoBehaviour
                 }
                 else
                 {
+                    header.SetText("Try again");
+                    loseAudio.PlayOneShot(loseAudio.clip);
                     clickOrder.Clear();
                 }
             }
@@ -68,11 +73,13 @@ public class Game1Mini1Logic : MonoBehaviour
             if (isWin)
             {
                 header.SetText("You win");
+                winAudio.PlayOneShot(winAudio.clip);
                 SetResetBtn(true);
             }
             else if (currentTrial == 0)
             {
                 header.SetText("You Lose");
+                loseAudio.PlayOneShot(loseAudio.clip);
                 SetResetBtn(true);
 
             }
